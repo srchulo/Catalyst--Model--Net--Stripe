@@ -13,7 +13,7 @@ Catalyst::Model::Net::Stripe - Stripe Model for Catalyst
 
 =head1 VERSION
 
-Version 0.03
+Version 0.02
 
 =cut
 

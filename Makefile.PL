@@ -20,7 +20,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Net::Stripe' => 0,
         'Moose' => 0,
-        'Croak' => 0,
+        'Carp' => 0,
         'Catalyst::Model' => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },

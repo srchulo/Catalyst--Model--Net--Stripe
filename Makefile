@@ -19,7 +19,7 @@
 #     MIN_PERL_VERSION => q[5.006]
 #     NAME => q[Catalyst::Model::Net::Stripe]
 #     PL_FILES => {  }
-#     PREREQ_PM => { Test::More=>q[0], Croak=>q[0], Net::Stripe=>q[0], Catalyst::Model=>q[0], Moose=>q[0] }
+#     PREREQ_PM => { Test::More=>q[0], Net::Stripe=>q[0], Catalyst::Model=>q[0], Moose=>q[0], Carp=>q[0] }
 #     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[lib/Catalyst/Model/Net/Stripe.pm]
 #     clean => { FILES=>q[Catalyst-Model-Net-Stripe-*] }
@@ -62,11 +62,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Catalyst::Model::Net::Stripe
 NAME_SYM = Catalyst_Model_Net_Stripe
-VERSION = 0.01
+VERSION = 0.03
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_01
+VERSION_SYM = 0_03
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.01
+XS_VERSION = 0.03
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -265,7 +265,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Catalyst-Model-Net-Stripe
-DISTVNAME = Catalyst-Model-Net-Stripe-0.01
+DISTVNAME = Catalyst-Model-Net-Stripe-0.03
 
 
 # --- MakeMaker macro section:
@@ -508,12 +508,12 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Carp: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Catalyst::Model: '\''0'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) '  Croak: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Moose: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Net::Stripe: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  perl: '\''5.006'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: '\''0.01'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: '\''0.03'\''' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -550,8 +550,8 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Carp" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Catalyst::Model" : "0",' >> META_new.json
-	$(NOECHO) $(ECHO) '            "Croak" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Moose" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Net::Stripe" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "perl" : "5.006"' >> META_new.json
@@ -559,7 +559,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.01"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.03"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -865,8 +865,8 @@ ppd :
 	$(NOECHO) $(ECHO) '    <AUTHOR>Adam Hopkins &lt;srchulo@cpan.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <PERLCORE VERSION="5,006,0,0" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Carp::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Model" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Croak::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Moose::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Net::Stripe" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="darwin-thread-multi-2level-5.16" />' >> $(DISTNAME).ppd

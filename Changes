@@ -1,5 +1,12 @@
 Revision history for Catalyst-Model-Net-Stripe
 
+0.03    May 11, 2014
+        Fixed Croak to Carp in required modules
+
+
+0.02    May 11, 2014
+        Fixed some documentation issues and included Catalyst::Helper::Model::Net::Stripe in MANIFEST
+
 0.01    May 11, 2014
         First version, released on an unsuspecting world.
 

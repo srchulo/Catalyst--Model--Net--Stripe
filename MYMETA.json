@@ -32,8 +32,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "Catalyst::Model" : "0",
-            "Croak" : "0",
             "Moose" : "0",
             "Net::Stripe" : "0",
             "perl" : "5.006"
@@ -41,5 +41,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.01"
+   "version" : "0.03"
 }
