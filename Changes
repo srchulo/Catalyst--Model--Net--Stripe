@@ -1,5 +1,8 @@
 Revision history for Catalyst-Model-Net-Stripe
 
+0.04    May 11, 2014
+        Fixed documentation error $c->model('Net::Stripe')->stripe->post_customer should be $c->model('Net::Stripe')->post_customer
+
 0.03    May 11, 2014
         Fixed Croak to Carp in required modules
 

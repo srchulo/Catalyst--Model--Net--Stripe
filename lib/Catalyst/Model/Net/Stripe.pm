@@ -13,11 +13,11 @@ Catalyst::Model::Net::Stripe - Stripe Model for Catalyst
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
@@ -48,7 +48,7 @@ our $VERSION = '0.03';
             exp_year=> '15',
         );
 
-        my $customer = $c->model('Net::Stripe')->stripe->post_customer(
+        my $customer = $c->model('Net::Stripe')->post_customer(
           card => $card,
           email => 'stripe@example.com',
           description => 'Test for Net::Stripe',
@@ -65,7 +65,7 @@ our $VERSION = '0.03';
 
 =head2 new
 
-	L<Catalyst> calls this method.
+L<Catalyst> calls this method.
 
 =cut
 
