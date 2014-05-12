@@ -18,8 +18,10 @@ WriteMakefile(
         'Test::More' => 0,
     },
     PREREQ_PM => {
-        #'ABC'              => 1.6,
-        #'Foo::Bar::Module' => 5.0401,
+        'Net::Stripe' => 0,
+        'Moose' => 0,
+        'Croak' => 0,
+        'Catalyst::Model' => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Catalyst-Model-Net-Stripe-*' },

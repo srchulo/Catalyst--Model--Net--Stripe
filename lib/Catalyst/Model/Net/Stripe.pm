@@ -1,12 +1,15 @@
 package Catalyst::Model::Net::Stripe;
-
-use 5.006;
 use strict;
-use warnings FATAL => 'all';
+
+use Carp qw( croak );
+use Net::Stripe;
+use Moose;
+extends 'Catalyst::Model';
+no Moose;
 
 =head1 NAME
 
-Catalyst::Model::Net::Stripe - The great new Catalyst::Model::Net::Stripe!
+Catalyst::Model::Net::Stripe - Stripe Model for Catalyst
 
 =head1 VERSION
 
@@ -16,37 +19,82 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+    # Use the helper to add a Stripe model to your application
+    script/myapp_create.pl model Stripe Net::Stripe
 
-Perhaps a little code snippet.
+    package YourApp::Model::Stripe;
+    use parent 'Catalyst::Model::Net::Stripe';
+        __PACKAGE->config(
+            api_key => 'API_KEY_HERE',
+        );
+    1;
+    
+    package YourApp::Controller::Foo;
 
-    use Catalyst::Model::Net::Stripe;
+    sub index : Path('/') {
+        my ($self, $c) = @_;
+    
+        my $card = Net::Stripe::Card->new(
+            number => '4242424242424242',
+            cvc => '499',
+            name => 'Bob Jones',
+            address_line1 => '2222 Palm Street',
+            address_line2 => 'Apt. 603',
+            address_zip => '78705',
+            address_state => 'TX',
+            exp_month => '02',
+            exp_year=> '15',
+        );
 
-    my $foo = Catalyst::Model::Net::Stripe->new();
-    ...
+        my $customer = $c->model('Net::Stripe')->stripe->post_customer(
+          card => $card,
+          email => 'stripe@example.com',
+          description => 'Test for Net::Stripe',
+        );
 
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+        $c->res->body($customer->id . "\n");
+    }
+ 
+    1;
 
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
-
 =cut
 
-sub function1 {
+=head2 new
+	L<Catalyst> calls this method.
+=cut
+
+sub new {
+	my $self  = shift->next::method(@_);
+	my $class = ref($self);
+
+    # Ensure that the required configuration is available...
+    croak "->config->{api_key} must be set for $class\n" unless $self->{api_key};
+     
+    # Instantiate a new Net::Stripe object...
+    $self->{stripe} = Net::Stripe->new(
+		api_key => $self->{api_key},
+    );
+     
+    return $self;
 }
 
-=head2 function2
+sub stripe { shift->{stripe} }
 
-=cut
-
-sub function2 {
+sub AUTOLOAD {
+    my $self = shift;
+    my %args = @_;
+ 
+    our $AUTOLOAD;
+ 
+    my $program = $AUTOLOAD;
+    $program =~ s/.*:://;
+ 
+    # pass straight through to our paypal object
+    return $self->{stripe}->$program(%args);
 }
 
 =head1 AUTHOR
