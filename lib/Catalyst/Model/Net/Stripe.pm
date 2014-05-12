@@ -54,7 +54,7 @@ our $VERSION = '0.01';
           description => 'Test for Net::Stripe',
         );
 
-        $c->res->body($customer->id . "\n");
+        $c->res->body($customer->id);
     }
  
     1;
@@ -64,7 +64,9 @@ our $VERSION = '0.01';
 =cut
 
 =head2 new
+
 	L<Catalyst> calls this method.
+
 =cut
 
 sub new {
