@@ -44,6 +44,7 @@ it under the same terms as perl itself.
 1;
  
 __DATA__
+=begin pod_to_ignore
  
 __compclass__
 package [% class %];

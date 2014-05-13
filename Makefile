@@ -62,11 +62,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Catalyst::Model::Net::Stripe
 NAME_SYM = Catalyst_Model_Net_Stripe
-VERSION = 0.04
+VERSION = 0.05
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_04
+VERSION_SYM = 0_05
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.04
+XS_VERSION = 0.05
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -265,7 +265,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Catalyst-Model-Net-Stripe
-DISTVNAME = Catalyst-Model-Net-Stripe-0.04
+DISTVNAME = Catalyst-Model-Net-Stripe-0.05
 
 
 # --- MakeMaker macro section:
@@ -513,7 +513,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  Moose: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Net::Stripe: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  perl: '\''5.006'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: '\''0.04'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: '\''0.05'\''' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -559,7 +559,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.04"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.05"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 

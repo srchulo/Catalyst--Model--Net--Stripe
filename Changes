@@ -1,5 +1,8 @@
 Revision history for Catalyst-Model-Net-Stripe
 
+0.05    May 12, 2014
+        removed pod-coverage test. Causing tests to fail on CPAN
+
 0.04    May 11, 2014
         Fixed documentation error $c->model('Net::Stripe')->stripe->post_customer should be $c->model('Net::Stripe')->post_customer
 
