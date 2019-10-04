@@ -8,7 +8,7 @@ WriteMakefile(
     AUTHOR           => q{Adam Hopkins <srchulo@cpan.org>},
     VERSION_FROM     => 'lib/Catalyst/Model/Net/Stripe.pm',
     ABSTRACT_FROM    => 'lib/Catalyst/Model/Net/Stripe.pm',
-    LICENSE          => 'Artistic_2_0',
+    LICENSE          => 'artistic_2',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
     CONFIGURE_REQUIRES => {
